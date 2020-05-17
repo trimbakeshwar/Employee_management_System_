@@ -14,10 +14,33 @@ namespace EmployeeBusinesLayer.services
         {
             this.information = information;
         }
-        public string Return_Data(EmployeeModle data)
+        public string Add_Data(EmployeeModle data)
         {
-            return this.information.Return_Data(data);
+            return this.information.Add_Data(data);
         }
-       
+        public string Delete(EmployeeModle id)
+        {
+            return this.information.Delete(id);
+        }
+        public string Update(EmployeeModle Data)
+        {            
+            return this.information.Update(Data);            
+        }
+        public dynamic GetAllEmployeeDetail()
+        {
+            return this.information.GetAllEmployeeDetail();
+        }
+        public dynamic GetEmployeeDetail(EmployeeModle uid)
+        {
+            return this.information.GetEmployeeDetail(uid);
+        }
+        public dynamic userLogin(EmployeeModle data)
+        {
+            return this.information.userLogin(data);
+        }
+
+
+
+
     }
 }
