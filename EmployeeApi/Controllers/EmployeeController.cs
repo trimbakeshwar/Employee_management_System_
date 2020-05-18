@@ -43,11 +43,11 @@ namespace EmployeeApi.Controllers
             dynamic orignal = data.GetAllEmployeeDetail();
             return Ok(new { orignal });
         }
-        [HttpGet]
-        [Route("userId")]
-        public IActionResult GetEmployeeDetail(EmployeeModle uid)
+        [HttpGet("{userId}")]
+       
+        public IActionResult GetEmployeeDetail(EmployeeModle userId)
         {
-            dynamic orignal = data.GetEmployeeDetail(uid);
+            dynamic orignal = data.GetEmployeeDetail(userId);
             return Ok(new { orignal });
         }
         [HttpGet]

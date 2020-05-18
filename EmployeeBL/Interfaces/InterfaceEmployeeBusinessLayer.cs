@@ -7,8 +7,9 @@ namespace EmployeeBusinesLayer.Interfaces
 {
     public interface InterfaceEmployeeBusinessLayer
     {
+
         string Add_Data(EmployeeModle modle);
-        string Delete(EmployeeModle id);
+        string Delete(EmployeeModle id); 
         string Update(EmployeeModle data);
         dynamic GetAllEmployeeDetail();
         dynamic GetEmployeeDetail(EmployeeModle uid);

@@ -26,11 +26,13 @@ namespace EmployeeApi
 
         public IConfiguration Configuration { get; }
 
-        // step 8 : This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+         public void ConfigureServices(IServiceCollection services)
         {
+            //set version of application
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //it can create single instance and give simple access globaly
             services.AddSingleton<IConfiguration>(Configuration);
+            //a new instance is provided every time a service instance is requested
             services.AddTransient<InterfaceEmployeeRL, EmployeeRepositoryLayer>();
             services.AddTransient<InterfaceEmployeeBusinessLayer, EmployeeBusinessLayer>();
         }
