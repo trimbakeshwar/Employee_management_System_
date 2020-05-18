@@ -235,7 +235,7 @@ namespace EmployeeRL.services
                     userId = reader.GetInt32(reader.GetOrdinal("userId")),
                     Email = reader.GetString(reader.GetOrdinal("Email")),
                     userName = reader.GetString(reader.GetOrdinal("userName")),
-                    passWord = reader.GetString(reader.GetOrdinal("passWord"))
+                  
                 };
                 list.Add(EmployeeModle);
             }
