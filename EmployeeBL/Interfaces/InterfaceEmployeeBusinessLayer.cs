@@ -8,11 +8,12 @@ namespace EmployeeBusinesLayer.Interfaces
     public interface InterfaceEmployeeBusinessLayer
     {
 
-        string Add_Data(EmployeeModle modle);
-        string Delete(EmployeeModle id); 
-        string Update(EmployeeModle data);
+        dynamic Registration(EmployeeModle modle);
+        dynamic Delete(int id);
+        dynamic Update(EmployeeModle data);
         dynamic GetAllEmployeeDetail();
-        dynamic GetEmployeeDetail(EmployeeModle uid);
-        dynamic userLogin(EmployeeModle data);
+        dynamic GetEmployeeDetail(int uid);
+        dynamic userLogin(string userName, string passWord);
+        dynamic Add_Data(EmployeeModle data);
     }
 }

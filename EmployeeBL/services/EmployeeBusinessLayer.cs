@@ -14,15 +14,15 @@ namespace EmployeeBusinesLayer.services
         {
             this.information = information;
         }
-        public string Add_Data(EmployeeModle data)
+        public dynamic Registration(EmployeeModle data)
         {
-            return this.information.Add_Data(data);
+            return this.information.Registration(data);
         }
-        public string Delete(EmployeeModle id)
+        public dynamic Delete(int id)
         {
             return this.information.Delete(id);
         }
-        public string Update(EmployeeModle Data)
+        public dynamic Update(EmployeeModle Data)
         {            
             return this.information.Update(Data);            
         }
@@ -30,16 +30,18 @@ namespace EmployeeBusinesLayer.services
         {
             return this.information.GetAllEmployeeDetail();
         }
-        public dynamic GetEmployeeDetail(EmployeeModle uid)
+        public dynamic GetEmployeeDetail(int uid)
         {
             return this.information.GetEmployeeDetail(uid);
         }
-        public dynamic userLogin(EmployeeModle data)
+        public dynamic userLogin(string userName, string passWord)
         {
-            return this.information.userLogin(data);
+            return this.information.userLogin(userName, passWord);
         }
-
-
+        public dynamic Add_Data(EmployeeModle data)
+        {
+            return this.information.Add_Data(data);
+        }
 
 
     }

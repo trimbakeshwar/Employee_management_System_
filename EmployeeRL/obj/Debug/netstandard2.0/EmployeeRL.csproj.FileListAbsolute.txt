@@ -10,3 +10,15 @@ D:\trimbak\EMPLOYEESAPI\EmployeeRL\obj\Debug\netstandard2.0\EmployeeRL.csproj.Co
 D:\trimbak\EMPLOYEESAPI\EmployeeRL\obj\Debug\netstandard2.0\EmployeeRL.dll
 D:\trimbak\EMPLOYEESAPI\EmployeeRL\obj\Debug\netstandard2.0\EmployeeRL.pdb
 D:\trimbak\EMPLOYEESAPI\EmployeeRL\obj\Debug\netstandard2.0\EmployeeRL.csproj.CoreCompileInputs.cache
+F:\trimbak\Employee_management_System_\EmployeeRL\bin\Debug\netstandard2.0\EmployeeRL.deps.json
+F:\trimbak\Employee_management_System_\EmployeeRL\bin\Debug\netstandard2.0\EmployeeRL.dll
+F:\trimbak\Employee_management_System_\EmployeeRL\bin\Debug\netstandard2.0\EmployeeRL.pdb
+F:\trimbak\Employee_management_System_\EmployeeRL\bin\Debug\netstandard2.0\EmployeeCL.dll
+F:\trimbak\Employee_management_System_\EmployeeRL\bin\Debug\netstandard2.0\EmployeeCL.pdb
+F:\trimbak\Employee_management_System_\EmployeeRL\obj\Debug\netstandard2.0\EmployeeRL.csprojAssemblyReference.cache
+F:\trimbak\Employee_management_System_\EmployeeRL\obj\Debug\netstandard2.0\EmployeeRL.AssemblyInfoInputs.cache
+F:\trimbak\Employee_management_System_\EmployeeRL\obj\Debug\netstandard2.0\EmployeeRL.AssemblyInfo.cs
+F:\trimbak\Employee_management_System_\EmployeeRL\obj\Debug\netstandard2.0\EmployeeRL.csproj.CoreCompileInputs.cache
+F:\trimbak\Employee_management_System_\EmployeeRL\obj\Debug\netstandard2.0\EmployeeRL.csproj.CopyComplete
+F:\trimbak\Employee_management_System_\EmployeeRL\obj\Debug\netstandard2.0\EmployeeRL.dll
+F:\trimbak\Employee_management_System_\EmployeeRL\obj\Debug\netstandard2.0\EmployeeRL.pdb

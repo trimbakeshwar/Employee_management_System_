@@ -7,11 +7,12 @@ namespace EmployeeRL.Interfaces
 {
     public interface InterfaceEmployeeRL
     {
-        string Add_Data(EmployeeModle modle);
-        string Delete(EmployeeModle id);
-        string Update(EmployeeModle Data);
+        dynamic Registration(EmployeeModle modle);
+        dynamic Delete(int id);
+        dynamic Update(EmployeeModle Data);
         dynamic GetAllEmployeeDetail();
-        dynamic GetEmployeeDetail(EmployeeModle uid);
-        dynamic userLogin(EmployeeModle data);
+        dynamic GetEmployeeDetail(int uid);
+        dynamic userLogin(string userName, string passWord);
+        dynamic Add_Data(EmployeeModle data);
     }
 }

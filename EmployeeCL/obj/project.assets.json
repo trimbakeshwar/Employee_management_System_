@@ -4156,19 +4156,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dhananjay\\.nuget\\packages\\": {}
+    "C:\\Users\\Er. Sandesh Bora\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\trimbak\\EMPLOYEESAPI\\EmployeeCL\\EmployeeCL.csproj",
+      "projectUniqueName": "F:\\trimbak\\Employee_management_System_\\EmployeeCL\\EmployeeCL.csproj",
       "projectName": "EmployeeCL",
-      "projectPath": "D:\\trimbak\\EMPLOYEESAPI\\EmployeeCL\\EmployeeCL.csproj",
-      "packagesPath": "C:\\Users\\Dhananjay\\.nuget\\packages\\",
-      "outputPath": "D:\\trimbak\\EMPLOYEESAPI\\EmployeeCL\\obj\\",
+      "projectPath": "F:\\trimbak\\Employee_management_System_\\EmployeeCL\\EmployeeCL.csproj",
+      "packagesPath": "C:\\Users\\Er. Sandesh Bora\\.nuget\\packages\\",
+      "outputPath": "F:\\trimbak\\Employee_management_System_\\EmployeeCL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Dhananjay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Er. Sandesh Bora\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4213,7 +4213,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

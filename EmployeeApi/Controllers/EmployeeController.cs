@@ -6,6 +6,7 @@ using EmployeeBusinesLayer.Interfaces;
 using EmployeeCommonLayer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 
 namespace EmployeeApi.Controllers
 {
@@ -20,42 +21,66 @@ namespace EmployeeApi.Controllers
             this.data = data;
         }
         [HttpPost]
+        public IActionResult Registration(EmployeeModle info)
+        {
+            dynamic orignal = data.Registration(info);
+            bool status = orignal.Item1;
+            string massage = orignal.Item2;
+            return Ok(new { status, massage });
+            
+        }
+        [HttpPut]
         public IActionResult Add_Data(EmployeeModle info)
         {
-            string orignal = data.Add_Data(info);
-            return Ok(new { orignal });
+            dynamic orignal = data.Add_Data(info);
+            bool status = orignal.Item1;
+            string massage = orignal.Item2;
+            return Ok(new { status, massage });
         }
-        [HttpDelete]
-        public IActionResult Delete(EmployeeModle id)
+        [HttpDelete("{Id}")]
+        public IActionResult Delete(int id)
         {
-            string orignal = data.Delete(id);
-            return Ok(new { orignal });
+            dynamic orignal = data.Delete(id);
+            bool status = orignal.Item1;
+            string massage = orignal.Item2;
+            return Ok(new { status, massage });
         }
         [HttpPatch]
         public IActionResult Update(EmployeeModle Data)
         {
-            string orignal = data.Update(Data);
-            return Ok(new { orignal });
+            dynamic orignal = data.Update(Data);
+            bool status = orignal.Item1;
+            string massage = orignal.Item2;
+            return Ok(new { status, massage });
         }
         [HttpGet]
         public IActionResult GetAllEmployeeDetail()
         {
             dynamic orignal = data.GetAllEmployeeDetail();
-            return Ok(new { orignal });
+            bool status = orignal.Item1;
+            string massage = orignal.Item2;
+            dynamic result = orignal.Item3;
+            return Ok(new { status, massage, result });
         }
         [HttpGet("{userId}")]
        
-        public IActionResult GetEmployeeDetail(EmployeeModle userId)
+        public IActionResult GetEmployeeDetail(int userId)
         {
             dynamic orignal = data.GetEmployeeDetail(userId);
-            return Ok(new { orignal });
+            bool status = orignal.Item1;
+            string massage = orignal.Item2;
+            dynamic result = orignal.Item3;
+            return Ok(new { status, massage, result });
         }
         [HttpGet]
-        [Route("login")]
-        public dynamic userLogin(EmployeeModle Data)
+        [Route("login/{userName}/{passWord}")]
+        public IActionResult userLogin(string userName,string passWord)
         {
-            dynamic orignal = data.userLogin(Data);
-            return Ok(new { orignal });
+            dynamic orignal = data.userLogin(userName, passWord);
+            bool status = orignal.Item1;
+            string massage = orignal.Item2;
+           
+            return Ok(new { status, massage });
         }
 
     }

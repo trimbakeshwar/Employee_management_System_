@@ -36,58 +36,15 @@ namespace EmployeeRL.services
             }
            
         }
-        /// <summary>
-        /// if user name and password same then welcome massage send
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public dynamic userLogin(EmployeeModle data)
-        {
-            try
-            {
-                //establish connection
-                Connection();
-                //create a object of store procedure
-                SqlCommand command = new SqlCommand("spUserLogin", con);
-                command.CommandType = CommandType.StoredProcedure;
-                //send parameter to store prrocedure
-                command.Parameters.AddWithValue("@userName", data.userName);
-                command.Parameters.AddWithValue("@passWord", data.passWord);
-                //open connection EmployeeTable
-                con.Open();
-                //this qury return 0 after succesfuly run 1 for fail
-                int i = command.ExecuteNonQuery();
-                //close connection
-                con.Close();
-                if (i >= 1)
-                {
-                    return "delete fail";
-                }
-                else
-                {
-
-                    return "welcome";
-                }
-            }
-            catch(Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-
-        }
-        /// <summary>
-        /// add data in database
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public string Add_Data(EmployeeModle data)
+        public dynamic Add_Data(EmployeeModle data)
         {
             try
             {
                 //get connection
                 Connection();
                 //create instance of store procedure
-                SqlCommand command = new SqlCommand("spUserRegistration", con);
+                SqlCommand command = new SqlCommand("[spAddData]", con);
+                string encrypted = EncryptPassword(data.passWord);
                 command.CommandType = CommandType.StoredProcedure;
                 //send parameter to stored procedure
                 command.Parameters.AddWithValue("@firstName", data.firstName);
@@ -97,16 +54,111 @@ namespace EmployeeRL.services
                 //command.Parameters.AddWithValue("@userId", data.userId);
                 command.Parameters.AddWithValue("@Email", data.Email);
                 command.Parameters.AddWithValue("@userName", data.userName);
-                command.Parameters.AddWithValue("@passWord", data.passWord);
+                command.Parameters.AddWithValue("@passWord", encrypted);
                 //open connection EmployeeTable
                 con.Open();
                 //this qury return 0 after succesfuly run 1 for fail
                 int i = command.ExecuteNonQuery();
                 con.Close();
                 if (i >= 1)
-                { return "insertion successful "; }
+                { return (true,"insertion successful "); }
                 else
-                { return "Email and userName alredy present"; }
+                { return (false,"Email and userName alredy present"); }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
+
+        /// <summary>
+        /// if user name and password same then welcome massage send
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public dynamic userLogin(string userName, string passWord)
+        {
+            try
+            {
+                //establish connection
+                Connection();
+                //create a object of store procedure
+                SqlCommand command = new SqlCommand("spUserLogin", con);
+                command.CommandType = CommandType.StoredProcedure;
+                //send parameter to store prrocedure
+                command.Parameters.AddWithValue("@userName", userName);
+                command.Parameters.AddWithValue("@passWord", passWord);
+                //open connection EmployeeTable
+                con.Open();
+                //this qury return 0 after succesfuly run 1 for fail
+                int i = command.ExecuteNonQuery();
+                //close connection
+                con.Close();
+                if (i >= 1)
+                {
+                    return (false,"login fail");
+                }
+                else
+                {
+
+                    return (true,"welcome");
+                }
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        } 
+        public static string EncryptPassword(string Password)
+        {
+            try
+            {
+                byte[] encData_byte = new byte[Password.Length];
+                encData_byte = System.Text.Encoding.UTF8.GetBytes(Password);
+                string encodedData = Convert.ToBase64String(encData_byte);
+                return encodedData;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in base64Encode" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// add data in database
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public dynamic Registration(EmployeeModle data)
+        {
+            try
+            {
+                //get connection
+                Connection();
+                //create instance of store procedure
+                SqlCommand command = new SqlCommand("spUserRegistration", con);
+                string encrypted = EncryptPassword(data.passWord);
+                command.CommandType = CommandType.StoredProcedure;
+                //send parameter to stored procedure
+                command.Parameters.AddWithValue("@firstName", data.firstName);
+                command.Parameters.AddWithValue("@lastName", data.lastName);
+                command.Parameters.AddWithValue("@Qualification", data.Qualification);
+                command.Parameters.AddWithValue("@payment", data.payment);
+                //command.Parameters.AddWithValue("@userId", data.userId);
+                command.Parameters.AddWithValue("@Email", data.Email);
+                command.Parameters.AddWithValue("@userName", data.userName);
+                command.Parameters.AddWithValue("@passWord", encrypted);
+                //open connection EmployeeTable
+                con.Open();
+                //this qury return 0 after succesfuly run 1 for fail
+                int i = command.ExecuteNonQuery();
+                con.Close();
+                if (i >= 1)
+                { return (true,"insertion successful "); }
+                else
+                { return (false,"Email and userName alredy present"); }
             }
             catch(Exception e)
             {
@@ -119,7 +171,7 @@ namespace EmployeeRL.services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string Delete(EmployeeModle id)
+        public dynamic Delete(int id)
         {
             try
             {
@@ -128,7 +180,7 @@ namespace EmployeeRL.services
                 SqlCommand command = new SqlCommand("spUserDeleteRegistration", con);
                 command.CommandType = CommandType.StoredProcedure;
                 //send parameter to store procedure
-                command.Parameters.AddWithValue("@userId", id.userId);
+                command.Parameters.AddWithValue("@userId", id);
                 //open connection EmployeeTable
                 con.Open();
                 //this qury return 1 after succesfuly run 0 for fail
@@ -136,11 +188,11 @@ namespace EmployeeRL.services
                 con.Close();
                 if (i >= 1)
                 {
-                    return "delete fail";
+                    return (true,"delete successful");
                 }
                 else
                 {
-                    return "delete successful";
+                    return (false,"delete fail");
                 }
             }
             catch(Exception e)
@@ -154,7 +206,7 @@ namespace EmployeeRL.services
         /// </summary>
         /// <param name="Data"></param>
         /// <returns></returns>
-        public string Update(EmployeeModle Data)
+        public dynamic Update(EmployeeModle Data)
         {
             try
             {
@@ -163,6 +215,8 @@ namespace EmployeeRL.services
                 SqlCommand command = new SqlCommand("spUserUpdateRegistration", con);
                 command.CommandType = CommandType.StoredProcedure;
                 //send parameter to store procedure
+                command.Parameters.AddWithValue("@firstName", Data.firstName);
+                command.Parameters.AddWithValue("@lastName", Data.lastName);
                 command.Parameters.AddWithValue("@Qualification", Data.Qualification);
                 command.Parameters.AddWithValue("@payment", Data.payment);
                 command.Parameters.AddWithValue("@Email", Data.Email);
@@ -176,11 +230,11 @@ namespace EmployeeRL.services
                 con.Close();
                 if (i >= 1)
                 {
-                    return "update fail";
+                    return (true,"update successful");
                 }
                 else
                 {
-                    return "update successful";
+                    return  (true,"update fail");
                 }
             }
             catch (Exception e)
@@ -202,14 +256,14 @@ namespace EmployeeRL.services
             //call get data method
             return GetData(command);
         }
-        public dynamic GetEmployeeDetail(EmployeeModle uid)
+        public dynamic GetEmployeeDetail(int uid)
         {
             Connection();
             //creat instance of store procedure
             SqlCommand command = new SqlCommand("EmployeeDetails", con);
             command.CommandType = CommandType.StoredProcedure;
             //send parameter to store procedure
-            command.Parameters.AddWithValue("userId", uid.userId);
+            command.Parameters.AddWithValue("@userId", uid);
             //call get method
             return GetData(command);
 
@@ -240,7 +294,7 @@ namespace EmployeeRL.services
                 list.Add(EmployeeModle);
             }
             con.Close();
-            return list;
+            return (true,"successful",list);
         }
 
         

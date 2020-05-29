@@ -4634,19 +4634,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dhananjay\\.nuget\\packages\\": {}
+    "C:\\Users\\Er. Sandesh Bora\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\trimbak\\EMPLOYEESAPI\\EmployeeRL\\EmployeeRL.csproj",
+      "projectUniqueName": "F:\\trimbak\\Employee_management_System_\\EmployeeRL\\EmployeeRL.csproj",
       "projectName": "EmployeeRL",
-      "projectPath": "D:\\trimbak\\EMPLOYEESAPI\\EmployeeRL\\EmployeeRL.csproj",
-      "packagesPath": "C:\\Users\\Dhananjay\\.nuget\\packages\\",
-      "outputPath": "D:\\trimbak\\EMPLOYEESAPI\\EmployeeRL\\obj\\",
+      "projectPath": "F:\\trimbak\\Employee_management_System_\\EmployeeRL\\EmployeeRL.csproj",
+      "packagesPath": "C:\\Users\\Er. Sandesh Bora\\.nuget\\packages\\",
+      "outputPath": "F:\\trimbak\\Employee_management_System_\\EmployeeRL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Dhananjay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Er. Sandesh Bora\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4659,8 +4659,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "D:\\trimbak\\EMPLOYEESAPI\\EmployeeCL\\EmployeeCL.csproj": {
-              "projectPath": "D:\\trimbak\\EMPLOYEESAPI\\EmployeeCL\\EmployeeCL.csproj"
+            "F:\\trimbak\\Employee_management_System_\\EmployeeCL\\EmployeeCL.csproj": {
+              "projectPath": "F:\\trimbak\\Employee_management_System_\\EmployeeCL\\EmployeeCL.csproj"
             }
           }
         }
@@ -4699,7 +4699,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
